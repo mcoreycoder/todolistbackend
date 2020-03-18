@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 
 
 
-app.route('/').get(function(req, res) {
+app.get('/', (function(req, res) {
     Todo.find(function(err, todos) {
         if (err) {
             console.log(err);
