@@ -15,6 +15,7 @@ mongoose.connect('process.env.ATLAS_CONNECTION', {
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/todos', todoRoutes);
 //const connection = mongoose.connect;
 
 //connection.once('open', function() {
@@ -68,7 +69,7 @@ todoRoutes.route('/add').post(function(req, res) {
         });
 });
 
-app.use('/todos', todoRoutes);
+
 
 app.listen(process.env.PORT, function() {
     console.log("Server is running on Port: " + process.env.PORT);
