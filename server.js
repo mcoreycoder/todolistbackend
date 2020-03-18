@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-require("dotenv").config("");
+require('dotenv').config({ path: 'ATLAS_CONNECTION' });
 const todoRoutes = express.Router();
 const Todo = require('./todo.model');
 PORT=4000;
