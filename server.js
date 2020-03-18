@@ -15,7 +15,7 @@ mongoose.connect('process.env.ATLAS_CONNECTION', {
 
 //app.use(cors());
 //app.use(bodyParser.json());
-app.use('/todos', todoRoutes);
+//app.use('/todos', todoRoutes);
 
 todoRoutes.route('/').get(function(req, res) {
     Todo.find(function(err, todos) {
