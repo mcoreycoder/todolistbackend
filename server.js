@@ -17,7 +17,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/todos', router);
 
-router.get('/Todolist', function(req, res) {
+router.get('/todos', function(req, res) {
     Todo.find(function(err, todos) {
         if (err) {
             console.log(err);
