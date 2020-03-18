@@ -7,7 +7,7 @@ require('dotenv').config({ path: 'ATLAS_CONNECTION' });
 const todoRoutes = express.Router();
 const Todo = require('./todo.model');
 PORT=4000;
-mongoose.connect('process.env.ATLAS_CONNECTION',' {
+mongoose.connect('process.env.ATLAS_CONNECTION', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
