@@ -21,7 +21,6 @@ app.use(bodyParser.json());
  //   console.log("MongoDB database connection established successfully");
 //})
 
-
 todoRoutes.route('/').get(function(req, res) {
     Todo.find(function(err, todos) {
         if (err) {
@@ -71,6 +70,6 @@ todoRoutes.route('/add').post(function(req, res) {
 
 app.use('/todos', todoRoutes);
 
-app.listen(process.env.PORT || 4000, function() {
-    console.log("Server is running on Port: " + process.env.PORT || 4000);
+app.listen(process.env.PORT, function() {
+    console.log("Server is running on Port: " + process.env.PORT);
 });
