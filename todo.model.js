@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const cors = require('cors');
 const Schema = mongoose.Schema;
 
 let Todo = new Schema({
