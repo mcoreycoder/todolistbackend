@@ -1,10 +1,10 @@
-const express = require('express');
+const express = require('express')
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config({ path: 'ATLAS_CONNECTION' });
-const todoRoutes = express.Router();
+const router = express.Router();
 const Todo = require('./todo.model');
 mongoose.connect('process.env.ATLAS_CONNECTION', {
     useNewUrlParser: true,
@@ -15,9 +15,9 @@ mongoose.connect('process.env.ATLAS_CONNECTION', {
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/todos', todoRoutes);
+app.use('/todos', router);
 
-router.get('/', function(req, res) {
+router.get('/todos', function(req, res) {
     Todo.find(function(err, todos) {
         if (err) {
             console.log(err);
@@ -27,14 +27,14 @@ router.get('/', function(req, res) {
     });
 });
 
-router.get('/:id', function(req, res) {
+router.get('/todo/:id', function(req, res) {
     let id = req.params.id;
     Todo.findById(id, function(err, todo) {
         res.json(todo);
     });
 });
 
-router.put('/update/:id', function(req, res) {
+router.put('/todo/:id', function(req, res) {
     Todo.findById(req.params.id, function(err, todo) {
         if (!todo)
             res.status(404).send("data is not found");
@@ -53,7 +53,7 @@ router.put('/update/:id', function(req, res) {
     });
 });
 
-router.post('/add', function(req, res) {
+router.post('/todo/add', function(req, res) {
     let todo = new Todo(req.body);
     todo.save()
         .then(todo => {
