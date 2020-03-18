@@ -21,11 +21,9 @@ app.use(bodyParser.json());
  //   console.log("MongoDB database connection established successfully");
 //})
 
-app.get('/', function (req, res) {
-    res.render('index', {});
-  });
 
-todoRoutes.route('/').get(function(req, res) {
+
+app.route('/').get(function(req, res) {
     Todo.find(function(err, todos) {
         if (err) {
             console.log(err);
