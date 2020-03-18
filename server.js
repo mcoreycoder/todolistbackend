@@ -34,8 +34,8 @@ router.get('/todo/:id', function(req, res) {
     });
 });
 
-router.put('/todo/:id', function(req, res) {
-    Todo.findByIdAndUpdate(req.params.id, function(err, todo) {
+router.post('/todo/:id', function(req, res) {
+    Todo.findById(req.params.id, function(err, todo) {
         if (!todo)
             res.status(404).send("data is not found");
         else
