@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const router = express.Router();
 const Todo = require('./todo.model');
-require('dotenv').config({ path: 'ATLAS_CONNECTION' });
+require('dotenv').config("");
 mongoose.connect('process.env.ATLAS_CONNECTION', {
     useNewUrlParser: true,
     useUnifiedTopology: true
