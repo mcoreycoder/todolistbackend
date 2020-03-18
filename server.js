@@ -13,14 +13,9 @@ mongoose.connect('process.env.ATLAS_CONNECTION', {
 .then(console.log('Connected Successfully'))
 .catch(err => {console.log(err)})
 
-app.use(cors());
-app.use(bodyParser.json());
+//app.use(cors());
+//app.use(bodyParser.json());
 app.use('/todos', todoRoutes);
-//const connection = mongoose.connect;
-
-//connection.once('open', function() {
- //   console.log("MongoDB database connection established successfully");
-//})
 
 todoRoutes.route('/').get(function(req, res) {
     Todo.find(function(err, todos) {
