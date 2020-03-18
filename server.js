@@ -10,7 +10,6 @@ mongoose.connect('process.env.ATLAS_CONNECTION', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-.listen(process.env.PORT || 4000)
 .then(console.log('Connected Successfully'))
 .catch(err => {console.log(err)})
 
@@ -71,6 +70,6 @@ todoRoutes.route('/add').post(function(req, res) {
 
 app.use('/todos', todoRoutes);
 
-app.listen(PORT, function() {
-    console.log("Server is running on Port: " + PORT);
+app.listen(process.env.PORT || 4000, function() {
+    console.log("Server is running on Port: " + process.env.PORT || 4000);
 });
