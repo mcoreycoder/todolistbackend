@@ -20,6 +20,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/todos', router);
 
+//tested and works
 router.get('/todos', function(req, res) {
     Todo.find(function(err, todos) {
         if (err) {
@@ -30,6 +31,7 @@ router.get('/todos', function(req, res) {
     });
 });
 
+//tested and works
 router.get('/todo/:id', function(req, res) {
     let id = req.params.id;
     Todo.findById(id, function(err, todo) {
@@ -37,7 +39,8 @@ router.get('/todo/:id', function(req, res) {
     });
 });
 
-router.post('/todo/:id', function(req, res) {
+//tested and works but changed from a post to a put
+router.put('/todo/:id', function(req, res) {
     Todo.findById(req.params.id, function(err, todo) {
         if (!todo)
             res.status(404).send("data is not found");
@@ -56,6 +59,7 @@ router.post('/todo/:id', function(req, res) {
     });
 });
 
+//tested and works
 router.post('/todo', function(req, res) {
     let todo = new Todo(req.body);
     todo.save()
