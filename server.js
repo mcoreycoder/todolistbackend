@@ -1,12 +1,15 @@
 const express = require('express')
-const app = express();
-const bodyParser = require('body-parser');
-const cors = require('cors');
 const mongoose = require('mongoose');
 const router = express.Router();
+const bodyParser = require('body-parser');
+
 const Todo = require('./todo.model');
 require('dotenv').config("");
-mongoose.connect('process.env.ATLAS_CONNECTION', {
+const cors = require('cors');
+
+const app = express();
+
+mongoose.connect(process.env.ATLAS_CONNECTION, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
